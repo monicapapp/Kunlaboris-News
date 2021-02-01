@@ -25,6 +25,8 @@ async function createNew(req, res, next) {
       [subject, tag, lead, text, idUser]
     );
 
+    //esto es una prueba si github esta funcionando
+
     res.send({
       status: "ok",
       message: "Se ha agregado una nueva noticia.",
