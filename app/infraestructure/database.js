@@ -1,14 +1,8 @@
-"use strict";
+'use strict';
 
-const mysql = require("mysql2/promise");
+const mysql = require('mysql2/promise');
 
-const {
-  DATABASE_HOST,
-  DATABASE_PORT,
-  DATABASE_NAME,
-  DATABASE_USER,
-  DATABASE_PASSWORD,
-} = process.env;
+const { DATABASE_HOST, DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD } = process.env;
 
 let pool;
 
@@ -20,7 +14,7 @@ async function getPool() {
       user: DATABASE_USER,
       password: DATABASE_PASSWORD,
       database: DATABASE_NAME,
-      timezone: "Z",
+      timezone: 'Z',
     });
   }
   return await pool.getConnection();

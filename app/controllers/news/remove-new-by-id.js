@@ -1,19 +1,19 @@
-'use strict';
-
 // Para crear una conexion
 const getPool = require('../../infraestructure/database');
 
-async function getNews(req, res, next) {
+async function removeNewById(req, res, next) {
   let connection;
 
   try {
     connection = await getPool();
 
-    const [result] = await connection.query(`SELECT * FROM noticias;`);
+    const { idNew } = req.params;
+
+    await connection.query(`DELETE FROM noticias WHERE id=?;`, [idNew]);
 
     res.send({
       status: 'ok',
-      data: result,
+      message: 'La noticia ha sido eliminada.',
     });
   } catch (err) {
     next(err);
@@ -22,4 +22,4 @@ async function getNews(req, res, next) {
   }
 }
 
-module.exports = getNews;
+module.exports = removeNewById;

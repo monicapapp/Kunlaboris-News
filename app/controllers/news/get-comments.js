@@ -1,7 +1,7 @@
-/* "use strict";
+'use strict';
 
 // Para crear una conexion
-const getPool = require("../../infraestructure/database");
+const getPool = require('../../infraestructure/database');
 
 async function getComment(req, res, next) {
   let connection;
@@ -12,9 +12,10 @@ async function getComment(req, res, next) {
     // console.log("HOLAAAAAAAAAAAA");
 
     const [result] = await connection.query(`SELECT * FROM noticias;`);
+    //const [result] = await connection.query(`SELECT * FROM comentario;`);
 
     res.send({
-      status: "ok",
+      status: 'ok',
       data: result,
     });
   } catch (err) {
@@ -25,4 +26,3 @@ async function getComment(req, res, next) {
 }
 
 module.exports = getComment;
- */
